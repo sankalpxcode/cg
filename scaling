@@ -1,0 +1,23 @@
+#include <stdio.h>
+#include <conio.h>
+#include <graphics.h>
+
+void main()
+{
+    int gd = DETECT, gm;
+    initgraph(&gd, &gm, "C:\\TURBOC3\\BGI");
+    
+    int x1 = 100, y1 = 100, x2 = 200, y2 = 200;
+    float sx = 1.5, sy = 1.5;
+    
+    rectangle(x1, y1, x2, y2);
+    outtextxy(x1, y1-20, "Before Scaling");
+    getch();
+    
+    cleardevice();
+    rectangle(x1*sx, y1*sy, x2*sx, y2*sy);
+    outtextxy(x1*sx, y1*sy-20, "After Scaling");
+    
+    getch();
+    closegraph();
+}
