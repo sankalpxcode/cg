@@ -1,0 +1,26 @@
+#include <stdio.h>
+#include <conio.h>
+#include <graphics.h>
+
+void main()
+{
+    int gd = DETECT, gm;
+    initgraph(&gd, &gm, "C:\\TURBOC3\\BGI");
+    
+    int x1 = 100, y1 = 100, x2 = 200, y2 = 200;
+    float shx = 0.5;
+    
+    rectangle(x1, y1, x2, y2);
+    outtextxy(x1, y1-20, "Before Shearing");
+    getch();
+    
+    cleardevice();
+    line(x1+shx*y1, y1, x2+shx*y2, y2);
+    line(x1+shx*y1, y1, x1+shx*y2, y2);
+    line(x2+shx*y1, y1, x2+shx*y2, y2);
+    line(x1+shx*y2, y2, x2+shx*y2, y2);
+    outtextxy(x1, y1-20, "After Shearing");
+    
+    getch();
+    closegraph();
+}
