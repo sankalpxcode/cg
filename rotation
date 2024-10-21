@@ -1,0 +1,27 @@
+#include <stdio.h>
+#include <conio.h>
+#include <graphics.h>
+#include <math.h>
+
+void main()
+{
+    int gd = DETECT, gm;
+    initgraph(&gd, &gm, "C:\\TURBOC3\\BGI");
+    
+    int x1 = 100, y1 = 100, x2 = 200, y2 = 100;
+    float angle = 45 * 3.14159 / 180;  // 45 degrees in radians
+    int xr, yr;
+    
+    line(x1, y1, x2, y2);
+    outtextxy(x1, y1-20, "Before Rotation");
+    getch();
+    
+    cleardevice();
+    xr = x1 + (x2-x1)*cos(angle) - (y2-y1)*sin(angle);
+    yr = y1 + (x2-x1)*sin(angle) + (y2-y1)*cos(angle);
+    line(x1, y1, xr, yr);
+    outtextxy(x1, y1-20, "After Rotation");
+    
+    getch();
+    closegraph();
+}
