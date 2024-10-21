@@ -1,0 +1,23 @@
+#include <stdio.h>
+#include <conio.h>
+#include <graphics.h>
+
+void main()
+{
+    int gd = DETECT, gm;
+    initgraph(&gd, &gm, "C:\\TURBOC3\\BGI");
+    
+    int x1 = 100, y1 = 100, x2 = 200, y2 = 200;
+    int tx = 50, ty = 30;
+    
+    rectangle(x1, y1, x2, y2);
+    outtextxy(x1, y1-20, "Before Translation");
+    getch();
+    
+    cleardevice();
+    rectangle(x1+tx, y1+ty, x2+tx, y2+ty);
+    outtextxy(x1+tx, y1+ty-20, "After Translation");
+    
+    getch();
+    closegraph();
+}
