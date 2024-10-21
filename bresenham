@@ -1,0 +1,37 @@
+#include<stdio.h>
+#include<graphics.h>
+void drawline(int x1, int y1, int x2, int y2)
+{
+int dx,dy,p,x,y,i;
+dx=x2-x1;
+dy=y2-y1;
+x=x1;
+y=y1;
+p=2*dy-dx;
+for(i=0;i<=dx;i++)
+{
+putpixel(x,y,7);
+x=x+1;
+if(p>=0)
+{
+p=p+2*dy-2*dx;
+y=y+1;
+}
+else
+{
+p=p+2*dy;
+}
+}
+}
+void main()
+{
+int gdriver=DETECT, gmode, error, x1, y1, x2, y2;
+initgraph(&gdriver, &gmode, "C:\\TC\\BGI");
+printf("Enter coordinates of initial points: ");
+scanf("%d%d",&x1, &y1);
+printf("Enter coordinates of end points: ");
+scanf("%d%d", &x2, &y2);
+drawline(x1, y1, x2, y2);
+getch();
+closegraph();
+}
